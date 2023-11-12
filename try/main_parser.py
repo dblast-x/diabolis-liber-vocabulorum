@@ -23,7 +23,5 @@ with open("src/Diabolous.txt", "r") as blob:
             "\n",
             blob.read(),
         )
-        print(new_blob)
         new.write(new_blob)
-
-    print("DONE..!")
+        print("DONE..!")
