@@ -20,9 +20,13 @@ compiled = re.compile(
 
 with open("src/Diabolous.txt", "r") as blob:
     # TODO: Use the original file and write a copy with the parser aplied
-    new_blob = re.sub(
-        compiled,
-        "\n",
-        blob.read(),
-    )
-    print(new_blob)
+    with open("src/edited_diabolous.txt", "w") as new:
+        new_blob = re.sub(
+            compiled,
+            "\n",
+            blob.read(),
+        )
+        print(new_blob)
+        new.write(new_blob)
+
+    print("DONE..!")
