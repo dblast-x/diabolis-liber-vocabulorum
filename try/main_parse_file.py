@@ -16,12 +16,12 @@ compiled = re.compile(
     re.MULTILINE,
 )
 
-with open("src/Diabolous.txt", "r") as blob:
+with open("src/Diabolous.txt", "r") as text:
     with open("src/edited_diabolous.txt", "w") as new:
-        new_blob = re.sub(
+        new_text = re.sub(
             compiled,
             "\n",
-            blob.read(),
+            text.read(),
         )
-        new.write(new_blob)
+        new.write(new_text)
         print("DONE..!")

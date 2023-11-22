@@ -1,9 +1,9 @@
 """
 Notes:
 ----------------------------
-+++ Diccionario del Diablo || Diabolous +++
- Cli application that acts as a dict,
- but instead of the usual definitions,
++++ Diccionario del Diablo || Diablis Liber Vocabulorum +++
+ Cli application that acts as a dict
+ but instead of the usual definitions
  it maps to Ambrose Bierce's dictionary.
 ----------------------------
 Plan:

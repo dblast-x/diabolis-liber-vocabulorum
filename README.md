@@ -1,6 +1,6 @@
 # *Diabolis Liber Vocabulorum*
 
-#### Steps:
+### Steps:
 
 **--Test--**
 1. [ x ] Make parser to improve the original text with flaws and pass it to an edited file.
@@ -16,3 +16,20 @@
             "C": {"Cword": "Lorem Ipsum"},
             "N": {"Nword": "Lorem Ipsum"},
         }
+        + The book may relay on a Database:
+        e.g:
+            | Letter -> one to many --> Word|s -> unique --> Meaning
+
+
+# Database:
+
+### SQL :: Benefits >>
+    - Relationship
+    - Experience working with a particular DRMS || MariaDB
+    - ...
+ 
+### JSON :: Benefits >>
+    - It's already a dictionary :v
+    - Portabble
+    - Editable
+
