@@ -25,7 +25,7 @@
 
 ### SQL :: Benefits >>
     - Relationship
-    - Experience working with a particular DRMS || MariaDB
+    - Experience working with a particular DRMS || SQLite3
     - ...
  
 ### JSON :: Benefits >>
