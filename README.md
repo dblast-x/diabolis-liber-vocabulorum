@@ -11,10 +11,10 @@
     - [  ] Parse the book and create the dictionary to use as the 'Liber Vocabulorum'
     e.g :                                   <br>
         {                                   <br>
-            "A": {"Aword": "Lorem Ipsum"},
-            "B": {"Bword": "Lorem Ipsum"},
-            "C": {"Cword": "Lorem Ipsum"},
-            "N": {"Nword": "Lorem Ipsum"},
+            "A": {"Aword": "Lorem Ipsum"},  <br>
+            "B": {"Bword": "Lorem Ipsum"},  <br>
+            "C": {"Cword": "Lorem Ipsum"},  <br>
+            "N": {"Nword": "Lorem Ipsum"},  <br>
         }                                   <br>
         + The book may relay on a Database:
         e.g:                                <br>
