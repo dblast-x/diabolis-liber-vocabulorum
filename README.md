@@ -9,13 +9,13 @@
 **--Prod.--**
 1. [ x ] Develop the search algorithm
     - [  ] Parse the book and create the dictionary to use as the 'Liber Vocabulorum'
-    e.g :                                   <br>
-        {                                   <br>
-            "A": {"Aword": "Lorem Ipsum"},  <br>
-            "B": {"Bword": "Lorem Ipsum"},  <br>
-            "C": {"Cword": "Lorem Ipsum"},  <br>
-            "N": {"Nword": "Lorem Ipsum"},  <br>
-        }                                   <br>
+    e.g :                                               <br>
+        {                                               <br>
+            "A": {"Aword": "Lorem Ipsum"},              <br>
+            "B": {"Bword": "Lorem Ipsum"},              <br>
+            "C": {"Cword": "Lorem Ipsum"},              <br>
+            "N": {"Nword": "Lorem Ipsum"},              <br>
+        }                                               <br>
         + The book may relay on a Database:
         e.g:                                <br>
             | Letter -> one to many --> Word|s -> unique --> Meaning <br>
