@@ -13,24 +13,43 @@ Pattern >>
 
 import re
 
-with open("src/edited_diabolous.txt", "r") as file:
-    print("Find the Letter.")
-    for line in file:
-        match = re.search(r"^[A-Z]\n+", line)
-        if match:
-            print("found!", match.group())
-        elif match is None:
-            continue
-        else:
-            print("Not found")
+# import sqlite3
 
-with open("src/edited_diabolous.txt", "r") as file:
-    print("Find the Pattern.")
-    for line in file:
-        line = line.rstrip()
-        match = re.findall("(^[A-Z][a-z]+,\s[s.]*.+)\s[A-Z][a-z]+", line)
-        if match:
-            # print(line) # D
-            print(match, "found!")
-        else:
-            continue
+
+def letter_picker(file: str):
+    if len(file) < 1:
+        with open("src/edited_diabolous.txt", "r") as f:
+            print("Find the Letter.")
+            for line in f:
+                match = re.search(r"^[A-Z]\n+", line)
+                if match:
+                    print("found!", match.group())
+                elif match is None:
+                    continue
+                else:
+                    print("Not found")
+
+
+def word_picker(file: str):
+    if len(file) < 1:
+        with open("src/edited_diabolous.txt", "r") as f:
+            print("Find the Pattern.")
+            pattern = re.compile(r"(^[A-Z][a-z]+,\s.*)\s")
+            for line in f:
+                line = line.rstrip()
+                match = re.findall(pattern, line)
+                if match:
+                    # print(line)  # D
+                    print(match, "found!")
+                else:
+                    continue
+
+
+def parser_on():
+    inp = input("Type in the file or no >> ")
+    # letter_picker(inp)
+    word_picker(inp)
+
+
+if __name__ == "__main__":
+    parser_on()
