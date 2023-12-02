@@ -27,8 +27,9 @@ with open("src/edited_diabolous.txt", "r") as file:
     print("Find the Pattern.")
     for line in file:
         line = line.rstrip()
-        match = re.findall(r"(^[A-Z][a-z]+,\s.+)[A-Z]", line)
+        match = re.findall(r"(^[A-Z][a-z]+,\s.*)\s[A-Z][a-z]+", line)
         if match:
+            # print(line) # D
             print(match, "found!")
         else:
             continue
