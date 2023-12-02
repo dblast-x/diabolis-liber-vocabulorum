@@ -23,11 +23,12 @@ with open("src/edited_diabolous.txt", "r") as file:
             continue
         else:
             print("Not found")
-    print()
+
+with open("src/edited_diabolous.txt", "r") as file:
     print("Find the Pattern.")
     for line in file:
         line = line.rstrip()
-        match = re.findall(r"(^[A-Z][a-z]+,\s.*)\s[A-Z][a-z]+", line)
+        match = re.findall("(^[A-Z][a-z]+,\s[s.]*.+)\s[A-Z][a-z]+", line)
         if match:
             # print(line) # D
             print(match, "found!")
