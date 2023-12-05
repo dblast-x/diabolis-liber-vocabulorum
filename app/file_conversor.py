@@ -1,10 +1,10 @@
 import re
 
-patterns = "|".join(
-    [
-        r"\d+\n",
-    ]
-)
+pattern = r"\d+\n"
+# patterns = "|".join(
+#     [
+#     ]
+# )
 
 compiled = re.compile(
     patterns,

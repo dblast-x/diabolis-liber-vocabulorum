@@ -34,16 +34,18 @@ def word_picker(file: str):
     if len(file) < 1:
         with open("src/edited_diabolous.txt", "r") as f:
             print("Find the Pattern.")
-            pattern = re.compile(r"(^[\w]+,\s[svtiadj.]+)\s")
+            pattern = re.compile(
+                r"^[A-Z][\w]+,\ss.|^[A-Z][\w]+,\sv.t.|^[A-Z][\w]+,\sv.i.|^[A-Z][\w]+,\sadj.\sy\ss."
+            )  # [svtiadj.]+
             for line in f:
                 line = line.rstrip()
                 match = re.findall(pattern, line)
-                print(line)
+                # print(line)
                 if match:
                     print(match, "found!")
                 else:
                     continue
-                print(line)
+                # print(line)
 
 
 def meaning_picker(file: str):
