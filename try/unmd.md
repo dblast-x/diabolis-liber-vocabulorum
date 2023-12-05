@@ -1,11 +1,13 @@
 `
 patterns = "|".join([
-    r"^[A-Z][\w]+,\ss.,"
-    r"^[A-Z][\w]+,\sv.t.,"
-    r"^[A-Z][\w]+,\sv.i.,"
-    r"^[A-Z][\w]+,\sadj.\sy\ss.,"
-    r"^[A-Z][\w]+,\ss.\sy\sadj.,"
+    r"^[A-Z][\w]+,\ss.\sy\sadj.",
+    r"^[A-Z][\w]+,\ss.",
+    r"^[A-Z][\w]+,\sv.t.",
+    r"^[A-Z][\w]+,\sv.i.",
+    r"^[A-Z][\w]+,\sadj.\sy\ss.",
 ])
+\
+\
 def word_picker(file: str):
     if len(file) < 1:
         with open("src/edited_diabolous.txt", "r") as f:

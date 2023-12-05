@@ -1,14 +1,14 @@
 """
-Steps >>
-1. Find the uppercase letter.
-2. Separate the *pattern from the meaning
-3. Insert it into the DB.
+ Steps >>
+   1. Find the uppercase letter.
+   2. Separate the *pattern from the meaning
+   3. Insert it into the DB.
 
-Pattern >>
-  * | startswith_capitalized_letter + one_or_more_linebreaks >>
-  ( A \n)
-  * | startswith_capitalized_word + coma + space + [letters + dot]s + space >>
-  (Abstemio, s.  ) || (Abstemio, v. t.  )
+ Pattern >>
+   * | startswith_capitalized_letter + one_or_more_linebreaks >>
+   ( A \n)
+   * | startswith_capitalized_word + coma + space + [letters + dot]s + space >>
+   (Abstemio, s.  ) || (Abstemio, v. t.  )
 """
 
 import re
@@ -64,22 +64,7 @@ def word_picker(file: str):
 
 
 def meaning_picker(file: str):
-    """
-    The right algo it's got to be a search from one
-    definition-word to the other definition-word
-    """
-    if len(file) < 1:
-        with open("src/edited_diabolous.txt", "r") as f:
-            print("Find the Pattern.")
-            pattern = re.compile(r"^[\w]+,\s[svtiadj.]+\s(.+$)", re.DOTALL)  # BUG:
-            for line in f:
-                line = line.rstrip()
-                match = re.findall(pattern, line)
-                if match:
-                    print(line)
-                    print(match, "found!")
-                else:
-                    continue
+    pass
 
 
 def parser_on():
