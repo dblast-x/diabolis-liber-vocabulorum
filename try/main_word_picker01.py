@@ -31,21 +31,36 @@ def letter_picker(file: str):
 
 
 def word_picker(file: str):
+    """
+    The actual count is 806. Still missing the
+    definition-words that include spaces.
+
+    Another algorithm that half-worked >>
+     [svtiadj.]+
+    """
     if len(file) < 1:
         with open("src/edited_diabolous.txt", "r") as f:
             print("Find the Pattern.")
-            pattern = re.compile(
-                r"^[A-Z][\w]+,\ss.|^[A-Z][\w]+,\sv.t.|^[A-Z][\w]+,\sv.i.|^[A-Z][\w]+,\sadj.\sy\ss."
-            )  # [svtiadj.]+
+            patterns = r"|".join(
+                [
+                    "^[A-Z][\w]+, s. y adj.",
+                    "^[A-Z][\w]+, adj. y s.",
+                    "^[A-Z][\w]+, adj.",
+                    "^[A-Z][\w]+, adv.",
+                    "^[A-Z][\w]+, s.",
+                    "^[A-Z][\w]+, v.t.",
+                    "^[A-Z][\w]+, v.i.",
+                ]
+            )
+            compiled = re.compile(patterns)
             for line in f:
                 line = line.rstrip()
-                match = re.findall(pattern, line)
+                match = re.findall(patterns, line)
                 # print(line)
                 if match:
                     print(match, "found!")
                 else:
                     continue
-                # print(line)
 
 
 def meaning_picker(file: str):
