@@ -4,12 +4,12 @@ import re
 def letter_picker():
     letters = list()
     """
-     [
+    #  25 letters
       'A', 'B', 'C', 'D', 'E', 'F',
       'G', 'H', 'I', 'J', 'K', 'L',
       'M', 'N', 'O', 'P', 'Q', 'R',
-      'S', 'T', 'U', 'V', 'W', 'Y', 'Z' ->> 25 letters
-     ]
+      'S', 'T', 'U', 'V', 'W', 'Y',
+      'Z'.
     """
     with open("src/edited_diabolous.txt", "r") as f:
         print("Find the Letter.")
@@ -23,12 +23,6 @@ def letter_picker():
             else:
                 print("Not found")
     return letters
-
-
-# BUG: Debug this file, there's and eternal loop.
-# BUG: Debug this file, there is a repetition in the write part
-#  #  DONE!! the text var is got to go blank again
-# FIX: The last letter z is out of boundries
 
 
 def search_words(letters):
@@ -61,7 +55,5 @@ def search_words(letters):
             start += 1
             end += 1
 
-
-# print(letter_picker())
 
 search_words(letter_picker())

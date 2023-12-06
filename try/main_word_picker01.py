@@ -1,7 +1,7 @@
 """
  Steps >>
    1. Find the uppercase letter.
-   2. Separate the *pattern from the meaning
+   2. Separate the words from the meanings.
    3. Insert it into the DB.
 
  Pattern >>
@@ -33,7 +33,7 @@ def letter_picker(file: str):
 def word_picker(file: str):
     """
     The actual count is 806. Still missing the
-    definition-words that include spaces.
+    definition-words that include spaces and 'some others'.
 
     Another algorithm that half-worked >>
      [svtiadj.]+
@@ -50,13 +50,12 @@ def word_picker(file: str):
                     "^[A-Z][\w]+, s.",
                     "^[A-Z][\w]+, v.t.",
                     "^[A-Z][\w]+, v.i.",
-                ]
+                ]  # add the 'numbered' ones
             )
             compiled = re.compile(patterns)
             for line in f:
                 line = line.rstrip()
                 match = re.findall(patterns, line)
-                # print(line)
                 if match:
                     print(match, "found!")
                 else:
@@ -69,7 +68,7 @@ def meaning_picker(file: str):
 
 def parser_on():
     inp = input("Type in the file, or no >> ")
-    # letter_picker(inp)
+    letter_picker(inp)
     word_picker(inp)
     # meaning_picker(inp)
 
