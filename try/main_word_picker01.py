@@ -18,7 +18,7 @@ import re
 
 def letter_picker(file: str):
     if len(file) < 1:
-        with open("src/edited_diabolous.txt", "r") as f:
+        with open("src/edit.txt", "r") as f:
             print("Find the Letter.")
             for line in f:
                 match = re.search(r"^[A-Z]\n+", line)
@@ -33,13 +33,13 @@ def letter_picker(file: str):
 def word_picker(file: str):
     """
     The actual count is 806. Still missing the
-    definition-words that include spaces and 'some others'.
+    definition-words that include spaces and numbers.
 
     Another algorithm that half-worked >>
      [svtiadj.]+
     """
     if len(file) < 1:
-        with open("src/edited_diabolous.txt", "r") as f:
+        with open("src/edit.txt", "r") as f:
             print("Find the Pattern.")
             patterns = r"|".join(
                 [
