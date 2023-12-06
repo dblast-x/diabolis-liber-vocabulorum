@@ -1,4 +1,5 @@
 import re
+from os import mkdir
 
 
 def letter_picker():
@@ -11,7 +12,7 @@ def letter_picker():
       'S', 'T', 'U', 'V', 'W', 'Y',
       'Z'.
     """
-    with open("src/edited_diabolous.txt", "r") as f:
+    with open("src/edit.txt", "r") as f:
         print("Find the Letter.")
         pattern = re.compile(r"^[A-Z]\n")
         for line in f:
@@ -26,8 +27,9 @@ def letter_picker():
 
 
 def search_words(letters):
-    with open("src/edited_diabolous.txt", "r") as f:
+    with open("src/edit.txt", "r") as f:
         start, end = 0, 1
+        mkdir("try/abc")
         for letter in range(0, len(letters)):
             text = ""
             with open(f"try/abc/{letters[letter]}.txt", "w") as target:
@@ -44,16 +46,12 @@ def search_words(letters):
                             print(b)
                             break
                     except IndexError:
-                        eof = re.search(r"nomber sagrados\.$", line, re.MULTILINE)
-                        if eof is None:
-                            text += line
-                        else:
-                            print(eof)
-                            break
+                        text += line
                     target.write(text)
                     text = ""
             start += 1
             end += 1
 
 
-search_words(letter_picker())
+if __name__ == "__main__":
+    search_words(letter_picker())
