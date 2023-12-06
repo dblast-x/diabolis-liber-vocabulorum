@@ -35,21 +35,29 @@ def search_words(letters):
     with open("src/edited_diabolous.txt", "r") as f:
         start, end = 0, 1
         for letter in range(0, len(letters)):
-            text = """"""
+            text = ""
             with open(f"try/abc/{letters[letter]}.txt", "w") as target:
                 for line in f:
                     a = re.search(rf"^{letters[start]}\n", line)
                     if a is not None:
                         print(a)
                         text += line
-                    b = re.search(rf"^{letters[end]}\n", line)
-                    if b is None:
-                        text += line
-                    else:
-                        print(b)
-                        break
+                    try:
+                        b = re.search(rf"^{letters[end]}\n", line)
+                        if b is None:
+                            text += line
+                        else:
+                            print(b)
+                            break
+                    except IndexError:
+                        eof = re.search(r"nomber sagrados\.$", line, re.MULTILINE)
+                        if eof is None:
+                            text += line
+                        else:
+                            print(eof)
+                            break
                     target.write(text)
-                    text = """"""
+                    text = ""
             start += 1
             end += 1
 
