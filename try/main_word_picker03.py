@@ -80,10 +80,14 @@ def word_picker():
             line = line.rstrip()
             match = re.findall(patterns, line)
             if match:
-                print(match, "found!")
+                # print(match, "found!")
                 words.append(match)
             else:
                 continue
+
+        # HACK: the findall is returning a list of lists of tuples
+        #       had to extract them first
+        words = [word for sublist in words for tpl in sublist for word in tpl if word]
 
         return words
 
@@ -92,28 +96,28 @@ def meaning_picker(file: str):
     pass
 
 
-def search_words(letters):
-    with open("src/edit.txt", "r") as f:
-        start, end = 0, 1
-        for letter in range(0, len(letters)):
+def search_words(letters, words):
+    for letter in range(len(letters)):
+        with open(f"try/abc/{letters[letter]}.txt", "r") as f:
+            start, end = 0, 1
             text = ""
-            with open(f"try/{letters[letter]}.txt", "w") as target:
-                for line in f:
-                    a = re.search(rf"^{letters[start]}\n", line)
-                    if a is not None:
-                        print(a)
+            for line in f:
+                a = re.search(rf"^" + words[start] + ",\s", line)
+                if a is not None:
+                    print(a)
+                    text += line
+                try:
+                    b = re.search(rf"^" + words[end] + ",\s", line)
+                    if b is None:
                         text += line
-                    try:
-                        b = re.search(rf"^{letters[end]}\n", line)
-                        if b is None:
-                            text += line
-                        else:
-                            print(b)
-                            break
-                    except IndexError:
-                        text += line
-                    target.write(text)
-                    text = ""
+                    else:
+                        print(b)
+                        break
+                except IndexError:
+                    print(1)
+                    text += line
+                print(text)
+                text = ""
             start += 1
             end += 1
 
@@ -124,6 +128,8 @@ def parser_on():
     words = word_picker()
     print(len(letters), "\t\t->> .letters.")
     print(len(words), "\t\t->> .words.")
+    print(words)
+    # search_words(letters, words)
 
 
 if __name__ == "__main__":

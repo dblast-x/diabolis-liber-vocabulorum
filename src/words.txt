@@ -1,0 +1,67 @@
+['Abandonado', 'Abdicación', 'Abdomen', 'Aborígenes', 'Abrupto', 'Absoluto', 'Abstemio', 'Absurdo', 'Aburrido', 'Academia', 'Accidente', 'Acéfal
+o', 'Acorde', 'Acordeón', 'Acreedor', 'Acusar', 'Adagio', 'Adherente', 'Adivinación', 'Administración', 'Admiración', 'Admitir', 'Admonición', '
+Adoración', 'Adorar', 'Aflicción', 'Aforismo', 'Africano', 'Agitador', 'Aire', 'Alá', 'Alba', 'Alianza', 'Alma', 'Almirante', 'Altar', 'Ambición
+', 'Ambidextro', 'Amistad', 'Amnistía', 'Amor', 'Ancianidad', 'Anécdota', 'Anormal', 'Antiamericano', 'Antipatía', 'Año', 'Apelar', 'Apetito', '
+Aplauso', 'Apóstata', 'Arado', 'Ardor', 'Arena', 'Aristocracia', 'Armadura', 'Arquitecto', 'Arrepentimiento', 'Arruinar', 'Arsénico', 'Arzobispo
+', 'Asilo', 'Asno', 'Astucia', 'Audacia', 'Ausente', 'Ausentista', 'Australia', 'Autoestima', 'Autoevidente', 'Averno', 'Avestruz', 'Ayer', 'Baa
+l', 'Baco', 'Bailar', 'Baño', 'Barba', 'Barómetro', 'Basilisco', 'Bastonada', 'Batalla', 'Bautismo', 'Bebé', 'Beber', 'Belladona', 'Belleza', 'B
+enefactor', 'Beso', 'Bestia', 'Bigamia', 'Blanco', 'Boca', 'Boda', 'Bolsillo', 'Botánica', 'Boticario', 'Brahma', 'Bruja', 'Brujería', 'Bruto', 
+'Bueno', 'Bufón', 'Caaba', 'Cabo', 'Cagatintas', 'Caimán', 'Calamidad', 'Camello', 'Camino', 'Candidatear', 'Candidato', 'Cangrejo', 'Caníbal', 
+'Cáñamo', 'Cañón', 'Capacidad', 'Capital', 'Carcaj', 'Carnada', 'Carne', 'Carnívoro', 'Cartesiano', 'Casa', 'Castigo', 'Celo', 'Celoso', 'Cement
+erio', 'Cenobita', 'Centauro', 'Cerbero', 'Cerdo', 'Cerebro', 'Cerradura', 'Cetro', 'Cimitarra', 'Cínico', 'Circo', 'Cita', 'Clarinete', 'Cleptó
+mano', 'Clérigo', 'Clio', 'Cobarde', 'Cociente', 'Col', 'Cola', 'Comer', 'Comercio', 'Comestible', 'Complacer', 'Cómplice', 'Comprometido', 'Com
+promiso', 'Compulsión', 'Condolerse', 'Conferencista', 'Confidente', 'Confort', 'Congratulaciones', 'Congreso', 'Conocedor', 'Conocido', 'Consej
+o', 'Conservador', 'Cónsul', 'Consultar', 'Controversia', 'Convencido', 'Conventillo', 'Convento', 'Conversación', 'Corazón', 'Coronación', 'Cor
+poración', 'Corsario', 'Costumbre', 'Cremona', 'Cristiano', 'Crítico', 'Cruz', 'Cuadro', 'Cuartel', 'Cupido', 'Curiosidad', 'Datario', 'Deber', 
+'Deber', 'Debilidad', 'Decálogo', 'Decidir', 'Defeccionar', 'Degenerado', 'Degradación', 'Dejeuner', 'Delegado', 'Deliberación', 'Dentista', 'De
+pendiente', 'Derecho', 'Desagravio', 'Desgracia', 'Desmemoria', 'Desobedecer', 'Desobediencia', 'Desposada', 'Desprecio', 'Destino', 'Desvencija
+do', 'Detener', 'Devoción', 'Deuda', 'Día', 'Diafragma', 'Diagnóstico', 'Diamante', 'Diana', 'Diccionario', 'Dictador', 'Difamar', 'Difamar', 'D
+igestión', 'Diluvio', 'Dinero', 'Diplomacia', 'Discriminar', 'Disculparse', 'Discusión', 'Disimular', 'Distancia', 'Disuadir', 'Diversión', 'Dol
+or', 'Doncella', 'Dosveces', 'Dragón', 'Dramaturgo', 'Druidas', 'Duelo', 'Economía', 'Educación', 'Ecuanimidad', 'Efecto', 'Egoísta', 'Egoísta',
+ 'Ejecutivo', 'Elector', 'Electricidad', 'Elegía', 'Elíseo', 'Elocuencia', 'Elogio', 'Emancipación', 'Embalsamar', 'Embuste', 'Emoción', 'Empala
+miento', 'Empujón', 'Encomio', 'Entendimiento', 'Entrañas', 'Entusiasmo', 'Envidia', 'Epicúreo', 'Epigrama', 'Epitafio', 'Ermitaño', 'Escarabajo
+', 'Escarificación', 'Escriba', 'Escrituras', 'Espalda', 'Espejo', 'Espiar', 'Erudición', 'Esotérico', 'Eterno', 'Etnología', 'Eucaristía', 'Eva
+ngelista', 'Excentricidad', 'Excepción', 'Exceso', 'Exhortar', 'Exiliado', 'Experiencia', 'Expulsión', 'Extinción', 'Extremidad', 'Extremo', 'Fa
+moso', 'Fanático', 'Fantasma', 'Faro', 'Favor', 'Fe', 'Fealdad', 'Felicidad', 'Felón', 'Ferrocarril', 'Fiador', 'Fidelidad', 'Fiesta', 'Filántro
+po', 'Filibustero', 'Filisteo', 'Filosofía', 'Finanzas', 'Fisonomía', 'Folletín', 'Folklore', 'Fonógrafo', 'Fotografía', 'Frenología', 'Frontera
+', 'Funeral', 'Futuro', 'Ganso', 'Gárgola', 'Gato', 'Genealogía', 'Generosidad', 'Generoso', 'Geógrafo', 'Geología', 'Glotón', 'Gnóstico', 'Gnu'
+, 'Gota', 'Gracias', 'Gramática', 'Gravitación', 'Guerra', 'Guillotina', 'Hablar', 'Hada', 'Hades', 'Halo', 'Harmonistas', 'Hibernar', 'Híbrido'
+, 'Hidra', 'Hiena', 'Hígado', 'Hilo', 'Hipogrifo', 'Hipócrita', 'Historia', 'Historiador', 'Hombre', 'Homeópata', 'Homeopatía', 'Homicidio', 'Ho
+norable', 'Hospitalidad', 'Hostilidad', 'Huérfano', 'Humanidad', 'Humildad', 'Humillación', 'Humorista', 'Huracán', 'Hurí', 'Idiota', 'Ignorante
+', 'Ilusión', 'Ilustre', 'Imaginación', 'Imbecilidad', 'Imparcial', 'Impenitencia', 'Impiedad', 'Imposición', 'Impostor', 'Imprevisión', 'Impuni
+dad', 'Inadmisible', 'Inauspiciosamente', 'Incompatibilidad', 'Incompatible', 'Inconducta', 'Indecisión', 'Indefenso', 'Independiente', 'Indiges
+tión', 'Indiscreción', 'Indultar', 'Ineficaz', 'Infiel', 'Infralapsario', 'Injusticia', 'Influencia', 'Infortunio', 'Ingenio', 'Ingenuidad', 'In
+grato', 'Injuria', 'Inmigrante', 'Inmoral', 'Innato', 'Inscripción', 'Insensible', 'Insignias', 'Insurrección', 'Intemperie', 'Intención', 'Inté
+rprete', 'Interregno', 'Intimidad', 'Inventor', 'Ira', 'Irreligión', 'Jábega', 'Jineta', 'Juramento', 'Justicia', 'Juventud', 'Kilt', 'Korán', '
+Ladrón', 'Lamentable', 'Laocoonte', 'Lástima', 'Legal', 'Lenguaje', 'Lexicógrafo', 'Libertad', 'Libertino', 'Ligas', 'Lío', 'Lira', 'Litigante',
+ 'Lobisón', 'Loco', 'Locuacidad', 'Locura', 'Locomaquia', 'Longevidad', 'Lord', 'Luminaria', 'Lunario', 'Lunes', 'Lógica', 'Macho', 'Macrobiano'
+, 'Magia', 'Magnético', 'Magnetismo', 'Magnífico', 'Magnitud', 'Majestad', 'Malechor', 'Malthusiano', 'Mamíferos', 'Mamón', 'Maná', 'Manes', 'Ma
+niqueísmo', 'Mano', 'Maquinación', 'Marido', 'Mártir', 'Más', 'Masonería', 'Matar', 'Matrimonio', 'Mausoleo', 'Mayonesa', 'Maza', 'Meandro', 'Me
+dalla', 'Médico', 'Mendaz', 'Mendigar', 'Mendigo', 'Menor', 'Mente', 'Metralla', 'Metrópoli', 'Mesmerismo', 'Milagro', 'Milenio', 'Ministro', 'M
+ío', 'Misericordia', 'Miss', 'Mitad', 'Mitología', 'Moda', 'Mojigata', 'Molécula', 'Momia', 'Mónada', 'Monarca', 'Mono', 'Monosilábico', 'Monseñ
+or', 'Monumento', 'Moral', 'Muerto', 'Mujer', 'Mulato', 'Multitud', 'Murmurar', 'Mustang', 'Nacimiento', 'Nariz', 'Néctar', 'Negativa', 'Negro',
+ 'Nepotismo', 'Newtoniano', 'Nihilista', 'Niñez', 'Nirvana', 'Noble', 'Notoriedad', 'Noúmeno', 'Novela', 'Noviembre', 'Observatorio', 'Obsoleto'
+, 'Obstinado', 'Ocasional', 'Occidente', 'Océano', 'Ociosidad', 'Odio', 'Ofensivo', 'Oleaginoso', 'Olímpico', 'Olvido', 'Opio', 'Oportunidad', '
+Oposición', 'Optimismo', 'Optimista', 'Oratoria', 'Ordenado', 'Ostra', 'Paciencia', 'Pagano', 'Palacio', 'Palma', 'Pandemonium', 'Panegírico', '
+Pantalón', 'Panteísmo', 'Pantomima', 'Pañuelo', 'Paraíso', 'Pasado', 'Pasaporte', 'Pasatiempo', 'Patriota', 'Patriotismo', 'Pavo', 'Paz', 'Peató
+n', 'Pedigré', 'Peligro', 'Pérdida', 'Peregrino', 'Pereza', 'Perfección', 'Peripatético', 'Perogrullada', 'Perorata', 'Perro', 'Perseverancia', 
+'Pesimismo', 'Piano', 'Picota', 'Pillo', 'Pintura', 'Piratería', 'Pirronismo', 'Placer', 'Plaga', 'Plagiar', 'Plagio', 'Planear', 'Platónico', '
+Plebeyo', 'Plebiscito', 'Pleito', 'Plenipotenciario', 'Pleonasmo', 'Plomo', 'Pluma', 'Pobreza', 'Policía', 'Poligamia', 'Política', 'Político', 
+'Pólvora', 'Populista', 'Portátil', 'Portugueses', 'Poseso', 'Positivismo', 'Posteridad', 'Potable', 'Preadánico', 'Precedente', 'Precio', 'Prec
+ipitación', 'Predestinación', 'Predeterminación', 'Predilección', 'Preexistencia', 'Preferencia', 'Prehistórico', 'Prejuicio', 'Prelado', 'Prerr
+ogativa', 'Presagio', 'Presbiteriano', 'Presentable', 'Presentación', 'Presente', 'Presidente', 'Presidente', 'Prevaricador', 'Primado', 'Prisió
+n', 'Privativo', 'Proboscis', 'Procaz', 'Proceso', 'Profecía', 'Prójimo', 'Propiedad', 'Providencial', 'Prórroga', 'Proyectil', 'Prueba', 'Publi
+car', 'Puerco', 'Puerto', 'Quiromancia', 'Quórum', 'Rabdomante', 'Racional', 'Radicalismo', 'Rana', 'Rapacidad', 'Ratón', 'Razonable', 'Razonar'
+, 'Realidad', 'Realmente', 'Rebelde', 'Receta', 'Recluta', 'Recordar', 'Reconciliación', 'Reconsiderar', 'Recreo', 'Rectitud', 'Redención', 'Red
+undante', 'Referéndum', 'Reflexión', 'Refrán', 'Regazo', 'Reina', 'Relicario', 'Religión', 'Realización', 'Reloj', 'Rematador', 'Renombre', 'Ren
+ta', 'Renunciar', 'Reparación', 'Réplica', 'Reportero', 'Reposar', 'Representante', 'Reprobación', 'República', 'República', 'Réquiem', 'Rescate
+', 'Residente', 'Respetabilidad', 'Respirador', 'Resplandeciente', 'Responder', 'Responsabilidad', 'Restitución', 'Restitutor', 'Resuelto', 'Res
+ultado', 'Retaguardia', 'Revelación', 'Reverencia', 'Revolución', 'Rey', 'Rezar', 'Rico', 'Ridículo', 'Rima', 'Rimador', 'Riqueza', 'Risa', 'Rit
+o', 'Ritualismo', 'Ron', 'Rostrum', 'Ruido', 'Rumor', 'Ruso', 'Sabbath', 'Sabiduría', 'Saciedad', 'Sacerdotalista', 'Sagrado', 'Sacramento', 'Sa
+lacidad', 'Salamandra', 'Salsa', 'Santo', 'Saquear', 'Sarcófago', 'Sartén', 'Satanás', 'Sátira', 'Sátiro', 'Seguro', 'Sello', 'Senado', 'Sepulcr
+o', 'Sicofante', 'Silfo', 'Silogismo', 'Símbolo', 'Sirena', 'Slang', 'Sobre', 'Sofisma', 'Soga', 'Solo', 'Suficiente', 'Sufragio', 'Superar', 'T
+acaño', 'Tarifa', 'Tecnicismo', 'Tedio', 'Teléfono', 'Telescopio', 'Temerario', 'Tenacidad', 'Tenedor', 'Teosofía', 'Tiempo', 'Tierra', 'Tinta',
+ 'Tipografía', 'Tomar', 'Tonto', 'Trabajo', 'Tregua', 'Trigo', 'Trinidad', 'Triquinosis', 'Troglodita', 'Tumba', 'Tumulto', 'Turba', 'Ubicuidad'
+, 'Ultimátum', 'Unción', 'Ungir', 'Unitario', 'Universalista', 'Urbanidad', 'Urraca', 'Uso', 'Valor', 'Vanidad', 'Valla', 'Vampiro', 'Venganza',
+ 'Veraz', 'Verdad', 'Verdugo', 'Vida', 'Vidente', 'Viejo', 'Virtudes', 'Vituperio', 'Viuda', 'Voto', 'Washingtoniano', 'Whhangdepootennawah', 'Y
+anqui', 'Yugo', 'Zanzibarita', 'Zenit', 'Zoología', 'Zeus']

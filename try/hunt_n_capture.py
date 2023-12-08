@@ -1,31 +1,3 @@
-"""
- Steps >>
-   1. Find the uppercase letter.
-   2. Separate the words from the meanings.
-   3. Insert it into the DB.
-
- Patterns >>
-   * | startswith_capitalized_letter + one_or_more_linebreaks >>
-   ( A \n)
-   * | startswith_capitalized_word + coma + space + [letters + dot]s + space >>
-   (Abstemio, s.  ) || (Abstemio, v. t.  )
-
-TODO: 
-    try exporting the letters in a list >>
-    then use them to search in the files >>
-    then extract the words and export them in a list >>
-    then use them to mark the boundaries of the meanings
-    and extract them.
-    Pass everything to a DB.sqlite
-
-
-    Loop inside file and word_list( ->> words
-    re.search( <<- words ) in file
-    extract meaning from
-    boundaries( ->> word_to_word
-    .
-"""
-
 import re
 
 # import sqlite3
@@ -80,40 +52,44 @@ def word_picker():
             line = line.rstrip()
             match = re.findall(patterns, line)
             if match:
-                print(match, "found!")
+                # print(match, "found!")
                 words.append(match)
             else:
                 continue
 
+        # HACK: the findall is returning a list of lists of tuples
+        #       had to extract them first
+        words = [word for sublist in words for tpl in sublist for word in tpl if word]
+
         return words
 
 
-def meaning_picker(file: str):
+def meaning_picker():
     pass
 
 
-def search_words(letters):
-    with open("src/edit.txt", "r") as f:
-        start, end = 0, 1
-        for letter in range(0, len(letters)):
+def search_words(words):
+    start, end = 0, 1
+    with open(f"src/edit.txt", "r") as f:
+        for _ in range(len(words)):
             text = ""
-            with open(f"try/{letters[letter]}.txt", "w") as target:
-                for line in f:
-                    a = re.search(rf"^{letters[start]}\n", line)
-                    if a is not None:
-                        print(a)
+            for line in f:
+                a = re.search(r"^" + words[start] + ",\s", line)
+                if a is not None:
+                    print(a)
+                    text += line
+                try:
+                    b = re.search(r"^" + words[end] + ",\s", line)
+                    if b is None:
                         text += line
-                    try:
-                        b = re.search(rf"^{letters[end]}\n", line)
-                        if b is None:
-                            text += line
-                        else:
-                            print(b)
-                            break
-                    except IndexError:
-                        text += line
-                    target.write(text)
-                    text = ""
+                    else:
+                        print(b)
+                        break
+                except IndexError:
+                    print(1)
+                    text += line
+                print(text)
+                text = ""
             start += 1
             end += 1
 
@@ -122,8 +98,7 @@ def parser_on():
     _ = input("!!Start!!Start!!")
     letters = letter_picker()
     words = word_picker()
-    print(len(letters), "\t\t->> .letters.")
-    print(len(words), "\t\t->> .words.")
+    search_words(words)
 
 
 if __name__ == "__main__":
