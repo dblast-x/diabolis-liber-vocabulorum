@@ -36,14 +36,14 @@ def word_picker():
         # print("Find the Pattern.")
         patterns = r"|".join(
             [
-                "(^[A-Z][\w]+), s[.] y adj[.]",
-                "(^[A-Z][\w]+), adj[.] y s[.]",
-                "(^[A-Z][\w]+), adj[.]",
-                "(^[A-Z][\w]+), adv[.]",
-                "(^[A-Z][\w]+), s[.]",
-                "(^[A-Z][\w]+), v[.]t[.]",
-                "(^[A-Z][\w]+), v[.]i[.]",
-                "(^[A-Z][\w]+), v[.]r[.]",
+                "^[A-Z][\w]+, s[.] y adj[.]",
+                "^[A-Z][\w]+, adj[.] y s[.]",
+                "^[A-Z][\w]+, adj[.]",
+                "^[A-Z][\w]+, adv[.]",
+                "^[A-Z][\w]+, s[.]",
+                "^[A-Z][\w]+, v[.]t[.]",
+                "^[A-Z][\w]+, v[.]i[.]",
+                "^[A-Z][\w]+, v[.]r[.]",
             ]
         )
         compiled = re.compile(patterns)
@@ -59,9 +59,10 @@ def word_picker():
 
         # HACK: the findall is returning a list of lists of tuples
         #       had to extract them first
-        words = [word for sublist in words for tpl in sublist for word in tpl if word]
+        # words = [word for sublist in words for tpl in sublist for word in tpl if word]
+        definition = [word for sublist in words for word in sublist]
 
-        return words
+        return definition
 
 
 def meaning_picker():
@@ -73,9 +74,14 @@ def search_words(words):
     with open(f"src/edit.txt", "r") as f:
         for _ in range(len(words)):
             text = ""
+            t = 0
             for line in f:
                 a = re.search(r"^" + words[start] + ",\s", line)
                 if a is not None:
+                    if t == 0:
+                        span = a.span[1]
+                        text += line[span:]
+                        t += 1
                     print(a)
                     text += line
                 try:
@@ -98,7 +104,8 @@ def parser_on():
     _ = input("!!Start!!Start!!")
     letters = letter_picker()
     words = word_picker()
-    search_words(words)
+    print(words)
+    # search_words(words)
 
 
 if __name__ == "__main__":
