@@ -14,7 +14,6 @@ def letter_picker():
       'Z'.
     """
     with open("src/edit.txt", "r") as f:
-        # print("Find the Letter.")
         pattern = re.compile(r"^[A-Z]\n")
         for line in f:
             match = re.search(pattern, line)
@@ -54,8 +53,7 @@ def word_picker():
                 words.append(match)
             else:
                 continue
-        # HACK: Just in case is needed only the word
-        # words = [word for sublist in words for tpl in sublist for word in tpl if word]
+
         definition = [word for sublist in words for word in sublist]
 
         return definition
@@ -63,8 +61,6 @@ def word_picker():
 
 def meaning_picker(words):
     end, start = 1, 0
-    _ = input("!!Start!!")
-    # print(f"start, end \t\t ->> {start}|{end}")
     with open("src/edit.txt", "r") as f:
         file = f.read()
         lenght = range(len(words))

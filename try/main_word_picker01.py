@@ -13,8 +13,6 @@
 
 import re
 
-# import sqlite3
-
 
 def letter_picker(file: str):
     if len(file) < 1:

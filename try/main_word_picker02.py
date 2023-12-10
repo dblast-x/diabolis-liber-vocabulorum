@@ -28,8 +28,6 @@ TODO:
 
 import re
 
-# import sqlite3
-
 
 def letter_picker():
     letters = list()

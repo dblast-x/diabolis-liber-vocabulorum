@@ -28,8 +28,6 @@ TODO:
 
 import re
 
-# import sqlite3
-
 
 def letter_picker():
     letters = list()
@@ -42,7 +40,6 @@ def letter_picker():
       'Z'.
     """
     with open("src/edit.txt", "r") as f:
-        # print("Find the Letter.")
         pattern = re.compile(r"^[A-Z]\n")
         for line in f:
             match = re.search(pattern, line)
@@ -61,7 +58,6 @@ def word_picker():
     The actual count is 804.
     """
     with open("src/edit.txt", "r") as f:
-        # print("Find the Pattern.")
         patterns = r"|".join(
             [
                 "(^[A-Z][\w]+), s[.] y adj[.]",
