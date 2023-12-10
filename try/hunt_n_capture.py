@@ -33,7 +33,6 @@ def word_picker():
     The actual count is 804.
     """
     with open("src/edit.txt", "r") as f:
-        # print("Find the Pattern.")
         patterns = r"|".join(
             [
                 "^[A-Z][\w]+, s[.] y adj[.]",
@@ -52,60 +51,50 @@ def word_picker():
             line = line.rstrip()
             match = re.findall(patterns, line)
             if match:
-                # print(match, "found!")
                 words.append(match)
             else:
                 continue
-
-        # HACK: the findall is returning a list of lists of tuples
-        #       had to extract them first
+        # HACK: Just in case is needed only the word
         # words = [word for sublist in words for tpl in sublist for word in tpl if word]
         definition = [word for sublist in words for word in sublist]
 
         return definition
 
 
-def meaning_picker():
-    pass
+def meaning_picker(words):
+    end, start = 1, 0
+    _ = input("!!Start!!")
+    # print(f"start, end \t\t ->> {start}|{end}")
+    with open("src/edit.txt", "r") as f:
+        file = f.read()
+        lenght = range(len(words))
+        for s in lenght:
+            start = s
+            text = dict()
+            try:
+                pattern = rf"\n*{words[start]}(.+)\n*{words[end]}"
+                match = re.findall(pattern, file, re.MULTILINE | re.DOTALL)
+            except IndexError:
+                match = re.findall(
+                    rf"\n*{words[start]}(.+)", file, re.MULTILINE | re.DOTALL
+                )
 
-
-def search_words(words):
-    start, end = 0, 1
-    with open(f"src/edit.txt", "r") as f:
-        for _ in range(len(words)):
-            text = ""
-            t = 0
-            for line in f:
-                a = re.search(r"^" + words[start] + ",\s", line)
-                if a is not None:
-                    if t == 0:
-                        span = a.span[1]
-                        text += line[span:]
-                        t += 1
-                    print(a)
-                    text += line
-                try:
-                    b = re.search(r"^" + words[end] + ",\s", line)
-                    if b is None:
-                        text += line
-                    else:
-                        print(b)
-                        break
-                except IndexError:
-                    print(1)
-                    text += line
+            if len(match) > 0:
+                text[words[start]] = match[0]
                 print(text)
-                text = ""
+            else:
+                continue
             start += 1
             end += 1
+        print(start, end)
 
 
 def parser_on():
     _ = input("!!Start!!Start!!")
     letters = letter_picker()
     words = word_picker()
-    print(words)
-    # search_words(words)
+    meaning_picker(words)
+    # print(words)
 
 
 if __name__ == "__main__":
