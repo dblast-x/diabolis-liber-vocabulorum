@@ -1,7 +1,5 @@
 import re
 
-# import sqlite3
-
 
 def pick_letters():
     letters = list()
@@ -102,14 +100,61 @@ def make_dictionary(letters, definitions):
     return dictionary
 
 
-def parser_on():
+def set_db(dictionary):
+    import sqlite3 as s3
+
+    conn = s3.connect("dict.sqlite")
+    cur = conn.cursor()
+
+    cur.execute("DROP TABLE IF EXISTS Letters")
+    cur.execute("DROP TABLE IF EXISTS Words")
+
+    cur.execute(
+        """
+        CREATE TABLE Letters(
+            id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE,
+            letter VARCHAR(1) NOT NULL)
+        """
+    )
+    cur.execute(
+        """
+        CREATE TABLE Words(
+            id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE,
+            word TEXT NOT NULL,
+            meaning TEXT NOT NULL,
+            letter_id INTEGER)
+        """
+    )
+    key_list = list(dictionary.keys())
+    letter_id = 1
+    for x in key_list:
+        actual = dictionary[x]
+        cur.execute("INSERT INTO Letters(letter) VALUES(?)", (x,))
+        for key, value in actual.items():
+            cur.execute(
+                """
+            INSERT INTO Words(word, meaning, letter_id) VALUES(
+                ?, ?, ?)""",
+                (
+                    key,
+                    value,
+                    letter_id,
+                ),
+            )
+        letter_id += 1
+
+    conn.commit()
+
+
+def game_on():
     _ = input("!!Start!!Start!!")
     letters = pick_letters()
     words = pick_words()
     definitions = pick_definitions(words)
     dictionary = make_dictionary(letters, definitions)
-    print(dictionary)
+    # set_db(dictionary)
+    print("Database created")
 
 
 if __name__ == "__main__":
-    parser_on()
+    game_on()

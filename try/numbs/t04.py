@@ -14,14 +14,14 @@ letter_id INTEGER);
 """
 
 
-def set_db():
+def set_db(dictionary):
     import sqlite3 as s3
 
     conn = s3.connect("dict.sqlite")
     cur = conn.cursor()
 
     cur.execute("DROP TABLE IF EXISTS Letters")
-    cur.execute("DROP TABLE IF EXISTS Definitions")
+    cur.execute("DROP TABLE IF EXISTS Words")
 
     cur.execute(
         """
@@ -39,6 +39,24 @@ def set_db():
             letter_id INTEGER)
         """
     )
+    key_list = list(dictionary.keys())
+    letter_id = 1
+    for x in key_list:
+        cur.execute("INSERT INTO Letters(letter) VALUES(?)", (x,))
+        for key, value in dictionary[x].items():
+            cur.execute(
+                """
+            INSERT INTO Words(word, meaning, letter_id) VALUES(
+                ?, ?, ?)""",
+                (
+                    key,
+                    value,
+                    letter_id,
+                ),
+            )
+        letter_id += 1
+
+    conn.commit()
 
 
 letters = ["A", "B", "C"]
@@ -100,8 +118,11 @@ def make_dict(letters, definitions):
             else:
                 print(f"'{key_letter}' Not found")
 
-    print(dictionary)
+    return dictionary
 
 
 definitions = define(words)
-make_dict(letters, definitions)
+dictionary = make_dict(letters, definitions)
+
+set_db(dictionary)
+print("Done!!")
