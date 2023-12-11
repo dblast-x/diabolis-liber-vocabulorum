@@ -3,7 +3,7 @@ import re
 # import sqlite3
 
 
-def letter_picker():
+def pick_letters():
     letters = list()
     """
     #  25 letters
@@ -27,7 +27,7 @@ def letter_picker():
     return letters
 
 
-def word_picker():
+def pick_words():
     """
     The actual count is 804.
     """
@@ -59,14 +59,17 @@ def word_picker():
         return definition
 
 
-def meaning_picker(words):
+def pick_definitions(words):
     end, start = 1, 0
     with open("src/edit.txt", "r") as f:
+        # ->> preps
         file = f.read()
         lenght = range(len(words))
+        definitions = list()
+        # ->> preps
         for s in lenght:
             start = s
-            text = dict()
+            definition = dict()
             try:
                 pattern = rf"\n*{words[start]}(.+)\n*{words[end]}"
                 match = re.findall(pattern, file, re.MULTILINE | re.DOTALL)
@@ -76,21 +79,36 @@ def meaning_picker(words):
                 )
 
             if len(match) > 0:
-                text[words[start]] = match[0]
-                print(text)
+                definition[words[start]] = match[0]
+                definitions.append(definition)
             else:
                 continue
             start += 1
             end += 1
-        print(start, end)
+
+        return definitions
+
+
+def make_dictionary(letters, definitions):
+    dictionary = {letter: {} for letter in letters}
+    for definition in definitions:
+        for key, value in definition.items():
+            key_letter = key[0]
+            if key_letter in dictionary:
+                dictionary[key_letter].update({key: value})
+            else:
+                print(f"'{key_letter}' Not found")
+
+    return dictionary
 
 
 def parser_on():
     _ = input("!!Start!!Start!!")
-    letters = letter_picker()
-    words = word_picker()
-    meaning_picker(words)
-    # print(words)
+    letters = pick_letters()
+    words = pick_words()
+    definitions = pick_definitions(words)
+    dictionary = make_dictionary(letters, definitions)
+    print(dictionary)
 
 
 if __name__ == "__main__":

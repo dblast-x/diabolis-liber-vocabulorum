@@ -1,14 +1,3 @@
-"""
-# A none initial value is valid.
-
-letters = ["a", "b", "c", "d"]
-
-definition = dict()
-for letter in letters:
-    definition[letter] = None
-    for x in range(4):
-        definition[letter] = x
-"""
 import re
 
 
@@ -58,16 +47,15 @@ words = [
 ]
 
 
-def new_logic(letters, words):
+def define(words):
     end, start = 1, 0
     _ = input("!!Start!!")
     with open("try/abc/tst.txt", "r") as f:
+        # ->> preps
         file = f.read()
         lenght = range(len(words))
-        dictionary = dict()
-        for letter in letters:
-            dictionary[letter] = None
-
+        definitions = list()
+        # ->> preps
         for s in lenght:
             start = s
             definition = dict()
@@ -81,13 +69,27 @@ def new_logic(letters, words):
 
             if len(match) > 0:
                 definition[words[start]] = match[0]
-                # for l in dictionary:
-                print(definition)
+                definitions.append(definition)
             else:
                 continue
             start += 1
             end += 1
-        print(start, end)
+
+        return definitions
 
 
-new_logic(letters, words)
+def make_dict(letters, definitions):
+    dictionary = {letter: {} for letter in letters}
+    for definition in definitions:
+        for key, value in definition.items():
+            key_letter = key[0]
+            if key_letter in dictionary:
+                dictionary[key_letter].update({key: value})
+            else:
+                print(f"'{key_letter}' Not found")
+
+    print(dictionary)
+
+
+definitions = define(words)
+make_dict(letters, definitions)
