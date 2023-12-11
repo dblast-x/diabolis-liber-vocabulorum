@@ -24,7 +24,7 @@
 # letters = ["A", "B", "C"]
 # dictionary = {l: {} for l in letters}
 # print(dictionary)
-#
+
 # This test
 letters = ["A", "B"]
 definition = [

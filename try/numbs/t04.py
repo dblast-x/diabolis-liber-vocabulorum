@@ -1,5 +1,18 @@
 import re
 
+"""
+CREATE TABLE Letters(
+id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE,
+letter VARCHAR(1) NOT NULL,
+word_id INTEGER);
+
+CREATE TABLE Words(
+id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE,
+word VARCHAR(10) NOT NULL,
+meaning VARCHAR(50) NOT NULL,
+letter_id INTEGER);
+"""
+
 
 def set_db():
     import sqlite3 as s3
@@ -12,19 +25,18 @@ def set_db():
 
     cur.execute(
         """
-        CREATE TABLE Letters (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            letter VARCHAR(1) NOT NULL UNIQUE
-        )
+        CREATE TABLE Letters(
+            id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE,
+            letter VARCHAR(1) NOT NULL)
         """
     )
     cur.execute(
         """
-        CREATE TABLE Definitions (
-            letter_id INTEGER NOT NULL,
-            words TEXT NOT NULL,
-            meaning TEXT NOT NULL UNIQUE
-        )
+        CREATE TABLE Words(
+            id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE,
+            word TEXT NOT NULL,
+            meaning  NOT NULL,
+            letter_id INTEGER)
         """
     )
 

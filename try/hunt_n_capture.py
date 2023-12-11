@@ -13,7 +13,7 @@ def pick_letters():
       'S', 'T', 'U', 'V', 'W', 'Y',
       'Z'.
     """
-    with open("src/edit.txt", "r") as f:
+    with open("src/Diabolous.txt", "r") as f:
         pattern = re.compile(r"^[A-Z]\n")
         for line in f:
             match = re.search(pattern, line)
