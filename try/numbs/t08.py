@@ -70,7 +70,7 @@ def pick_definitions(words):
             start = s
             definition = dict()
             try:
-                pattern = rf"\n*{words[start]}(.+)[\n.]{words[end]}"
+                pattern = rf"\n*{words[start]}(.+)[.\n]*{words[end]}"
                 match = re.findall(pattern, file, re.MULTILINE | re.DOTALL)
             except IndexError:
                 match = re.findall(
@@ -78,86 +78,17 @@ def pick_definitions(words):
                 )
 
             if len(match) > 0:
+                x += 1
                 definition[words[start]] = match[0]
                 definitions.append(definition)
-                print("." * x)
-                x += 1
+                print(definition)
+                print(x)
+                # _ = input("- ->> continue - ->>")
             else:
                 continue
             start += 1
             end += 1
 
-        return definitions
 
-
-def make_dictionary(letters, definitions):
-    dictionary = {letter: {} for letter in letters}
-    for definition in definitions:
-        for key, value in definition.items():
-            key_letter = key[0]
-            if key_letter in dictionary:
-                dictionary[key_letter].update({key: value})
-            else:
-                print(f"'{key_letter}' Not found")
-
-    return dictionary
-
-
-def set_db(dictionary):
-    import sqlite3 as s3
-
-    conn = s3.connect("dict.sqlite")
-    cur = conn.cursor()
-
-    cur.execute("DROP TABLE IF EXISTS Letters")
-    cur.execute("DROP TABLE IF EXISTS Words")
-
-    cur.execute(
-        """
-        CREATE TABLE Letters(
-            id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE,
-            letter VARCHAR(1) NOT NULL)
-        """
-    )
-    cur.execute(
-        """
-        CREATE TABLE Words(
-            id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE,
-            word TEXT NOT NULL,
-            meaning TEXT NOT NULL,
-            letter_id INTEGER)
-        """
-    )
-    key_list = list(dictionary.keys())
-    letter_id = 1
-    for x in key_list:
-        actual = dictionary[x]
-        cur.execute("INSERT INTO Letters(letter) VALUES(?)", (x,))
-        for key, value in actual.items():
-            cur.execute(
-                """
-            INSERT INTO Words(word, meaning, letter_id) VALUES(
-                ?, ?, ?)""",
-                (
-                    key,
-                    value,
-                    letter_id,
-                ),
-            )
-        letter_id += 1
-
-    conn.commit()
-
-
-def game_on():
-    _ = input("!!Start!!Start!!")
-    letters = pick_letters()
-    words = pick_words()
-    definitions = pick_definitions(words)
-    dictionary = make_dictionary(letters, definitions)
-    set_db(dictionary)
-    print("Database created")
-
-
-if __name__ == "__main__":
-    game_on()
+words = pick_words()
+pick_definitions(words)
