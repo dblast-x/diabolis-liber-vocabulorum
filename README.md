@@ -8,7 +8,7 @@
 
 **--Prod.--**
 1. [ x ] Develop the search algorithm
-    - [  ] Parse the book and create the dictionary to use as the 'Liber Vocabulorum'
+    - [ x ] Parse the book and create the dictionary to use as the 'Liber Vocabulorum'
     e.g :                                               <br>
         {                                               <br>
             "A": {"Aword": "Lorem Ipsum"},              <br>
@@ -19,6 +19,9 @@
         + The book may relay on a Database:
         e.g:                                <br>
             | Letter -> one to many --> Word|s -> unique --> Meaning <br>
+
+2. [  ] Create the actual program to query the data to the user.
+3. [  ] Pass it to Django.
 
 
 # Database:
@@ -32,4 +35,3 @@
     - It's already a dictionary :v
     - Portabble
     - Editable
-
