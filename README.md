@@ -28,7 +28,7 @@
 
 ### SQL :: Benefits >>
     - Relationship
-    - Experience working with a particular DRMS || SQLite3
+    - Experience working with a particular DBMS || SQLite3
     - ...
  
 ### JSON :: Benefits >>
