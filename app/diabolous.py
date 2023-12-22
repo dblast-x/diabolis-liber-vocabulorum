@@ -12,7 +12,7 @@ Plan:
       . Promt(intro)(question)(exit)
       . Input
       . Search Engine as SE
-      . Output
+      . Output(definition)(error as typo)
     .
 
     Steps:
@@ -27,6 +27,6 @@ Plan:
             ( else =>> Output.typo!
         }
 
-      if Promt.exit == true ==> Diabolous.end!
+      if Promt.exit ==> Diabolous.end!
      * 
 """
