@@ -106,7 +106,7 @@ def make_dictionary(letters, definitions):
 def set_db(dictionary):
     import sqlite3 as s3
 
-    conn = s3.connect("dict.sqlite")
+    conn = s3.connect("dict.db")
     cur = conn.cursor()
 
     cur.execute("DROP TABLE IF EXISTS Letters")
