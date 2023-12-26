@@ -27,19 +27,19 @@ def pick_letters():
 
 def pick_words():
     """
-    The actual count is 804.
+    The actual count is 804 | 803
     """
     with open("src/edit.txt", "r") as f:
         patterns = r"|".join(
             [
-                "(^[A-Z][\w])+, s[.] y adj[.]",
-                "(^[A-Z][\w])+, adj[.] y s[.]",
-                "(^[A-Z][\w])+, adj[.]",
-                "(^[A-Z][\w])+, adv[.]",
-                "(^[A-Z][\w])+, s[.]",
-                "(^[A-Z][\w])+, v[.]t[.]",
-                "(^[A-Z][\w])+, v[.]i[.]",
-                "(^[A-Z][\w])+, v[.]r[.]",
+                "(^[A-Z][\w]+)[,] s[.] y adj[.]",
+                "(^[A-Z][\w]+)[,] adj[.] y s[.]",
+                "(^[A-Z][\w]+)[,] adj[.]",
+                "(^[A-Z][\w]+)[,] adv[.]",
+                "(^[A-Z][\w]+)[,] s[.]",
+                "(^[A-Z][\w]+)[,] v[.]t[.]",
+                "(^[A-Z][\w]+)[,] v[.]i[.]",
+                "(^[A-Z][\w]+)[,] v[.]r[.]",
             ]
         )
         compiled = re.compile(patterns)
@@ -53,18 +53,20 @@ def pick_words():
             else:
                 continue
 
-        definition = [word for sublist in words for word in sublist]
+        definition = [
+            word for sublist in words for tuples in sublist for word in tuples if word
+        ]
 
         return definition
 
 
 def pick_definitions(words):
-    end, start = 1, 0
     with open("src/edit.txt", "r") as f:
         # ->> preps
         file = f.read()
         lenght = range(len(words))
         definitions = list()
+        start, end = 0, 1
         # ->> preps
         x = 0
         for s in lenght:
@@ -74,6 +76,7 @@ def pick_definitions(words):
                 pattern = rf"\n*{words[start]}(.+)[\n.]{words[end]}"
                 match = re.findall(pattern, file, re.MULTILINE | re.DOTALL)
             except IndexError:
+                print(1)
                 match = re.findall(
                     rf"\n*{words[start]}(.+)", file, re.MULTILINE | re.DOTALL
                 )
@@ -85,6 +88,7 @@ def pick_definitions(words):
                 x += 1
             else:
                 continue
+
             start += 1
             end += 1
 
@@ -107,7 +111,7 @@ def make_dictionary(letters, definitions):
 def set_db(dictionary):
     import sqlite3 as s3
 
-    conn = s3.connect("dict.db")
+    conn = s3.connect("t_dict.db")
     cur = conn.cursor()
 
     cur.execute("DROP TABLE IF EXISTS Letters")
@@ -134,14 +138,14 @@ def set_db(dictionary):
     for x in key_list:
         actual = dictionary[x]
         cur.execute("INSERT INTO Letters(letter) VALUES(?)", (x,))
-        for key, value in actual.items():
+        for word, meaning in actual.items():
             cur.execute(
                 """
             INSERT INTO Words(word, meaning, letter_id) VALUES(
                 ?, ?, ?)""",
                 (
-                    key,
-                    value,
+                    word,
+                    meaning,
                     letter_id,
                 ),
             )
@@ -154,10 +158,10 @@ def game_on():
     _ = input("!!Start!!Start!!")
     letters = pick_letters()
     words = pick_words()
-    # definitions = pick_definitions(words)
-    # dictionary = make_dictionary(letters, definitions)
-    # set_db(dictionary)
-    # print("Database created")
+    definitions = pick_definitions(words)
+    dictionary = make_dictionary(letters, definitions)
+    set_db(dictionary)
+    print("Database created")
 
 
 if __name__ == "__main__":
