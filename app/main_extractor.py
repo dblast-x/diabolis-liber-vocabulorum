@@ -4,8 +4,8 @@ from os import mkdir
 
 def letter_picker():
     letters = list()
-    """
     #  25 letters
+    """
       'A', 'B', 'C', 'D', 'E', 'F',
       'G', 'H', 'I', 'J', 'K', 'L',
       'M', 'N', 'O', 'P', 'Q', 'R',

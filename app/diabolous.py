@@ -16,7 +16,8 @@ Plan:
     .
 
     Steps:
-     Loop:
+     loop >>
+
       when Diabolous.start! =>> Promt.intro!
       .then =>> Promt.question!
       ..then =>> Input.save(inp)!
@@ -27,6 +28,8 @@ Plan:
             ( else =>> Output.typo!
         }
 
-      if Promt.exit ==> Diabolous.end!
+      << loop
+
+      if Promt.exit ==> Diabolous.end! 
      * 
 """
