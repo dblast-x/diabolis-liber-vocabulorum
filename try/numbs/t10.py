@@ -12,7 +12,7 @@ def pick_letters():
     Z.
     """
     letters = list()
-    with open("t_src/Diabolous.txt", "r") as f:
+    with open("src/Diabolous.txt", "r") as f:
         pattern = re.compile("^[A-Z]\n")
         for line in f:
             match = re.search(pattern, line)
@@ -26,29 +26,28 @@ def pick_letters():
     return letters
 
 
-def pick_definitions():
+def pick_words():
     """
-    Creates a list with the extracted words
-    and their meanings.
+    Creates a list with the extracted words.
     """
-    with open("t_src/edit.txt", "r") as f:
+    with open("src/edit.txt", "r") as f:
         patterns = "|".join(
             [
-                "(^[A-Z][\w]+), s[.] y adj[.]",
-                "(^[A-Z][\w]+), adj[.] y s[.]",
-                "(^[A-Z][\w]+), adj[.]",
-                "(^[A-Z][\w]+), adv[.]",
-                "(^[A-Z][\w]+), s[.]",
-                "(^[A-Z][\w]+), v[.]t[.]",
-                "(^[A-Z][\w]+), v[.]i[.]",
-                "(^[A-Z][\w]+), v[.]r[.]",
+                "(\n*^[A-Z][\w]+), s[.] y adj[.]",
+                "(\n*^[A-Z][\w]+), adj[.] y s[.]",
+                "(\n*^[A-Z][\w]+), adj[.]",
+                "(\n*^[A-Z][\w]+), adv[.]",
+                "(\n*^[A-Z][\w]+), s[.]",
+                "(\n*^[A-Z][\w]+), v[.]t[.]",
+                "(\n*^[A-Z][\w]+), v[.]i[.]",
+                "(\n*^[A-Z][\w]+), v[.]r[.]",
             ]
         )
-        compiled = re.compile(patterns)
+        pattern = re.compile(patterns)
         words = list()
         for line in f:
             line = line.rstrip()
-            match = re.findall(patterns, line)
+            match = re.findall(pattern, line)
             if match:
                 words.append(match)
             else:
@@ -61,46 +60,12 @@ def pick_definitions():
         return definitions_list
 
 
-def pick_types():
-    """
-    Creates a list of types
-    """
-    with open("t_src/edit.txt", "r") as f:
-        patterns = "|".join(
-            [
-                "^[A-Z][\w]+, (s[.])",
-                "^[A-Z][\w]+, (adj[.] y s[.])",
-                "^[A-Z][\w]+, (adj[.])",
-                "^[A-Z][\w]+, (adv[.])",
-                "^[A-Z][\w]+, (v[.]t[.])",
-                "^[A-Z][\w]+, (v[.]i[.])",
-                "^[A-Z][\w]+, (v[.]r[.])",
-            ]
-        )
-        compiled = re.compile(patterns)
-        types = list()
-        for line in f:
-            line = line.rstrip()
-            match = re.findall(patterns, line)
-            if match:
-                types.append(match)
-            else:
-                continue
-        print(types)
-
-        type_list = set(
-            [alpha for sublist in types for typ in sublist for alpha in typ if alpha]
-        )
-
-        return type_list
-
-
 def define(picked):
     """
     Structures the definitions.
     """
     end, start = 1, 0
-    with open("t_src/edit.txt", "r") as f:
+    with open("src/edit.txt", "r") as f:
         # ->> preps
         file = f.read()
         lenght = range(len(picked))
@@ -111,11 +76,11 @@ def define(picked):
             start = s
             definition = dict()
             try:
-                pattern = f"\n*{picked[start]}(.+)[\n.]{picked[end]}"
+                pattern = rf"\n*{picked[start]}(.+)[\n.]{picked[end]}"
                 match = re.findall(pattern, file, re.MULTILINE | re.DOTALL)
             except IndexError:
                 match = re.findall(
-                    f"\n*{picked[start]}(.+)", file, re.MULTILINE | re.DOTALL
+                    rf"\n*{picked[start]}(.+)", file, re.MULTILINE | re.DOTALL
                 )
 
             if len(match) > 0:
@@ -147,7 +112,7 @@ def make_dictionary(letters, definitions):
 def set_db(dictionary):
     import sqlite3 as s3
 
-    conn = s3.connect("dict.db")
+    conn = s3.connect("diabolous.db")
     cur = conn.cursor()
 
     cur.execute("DROP TABLE IF EXISTS Letters")
@@ -169,12 +134,12 @@ def set_db(dictionary):
             letter_id INTEGER)
         """
     )
-    key_list = list(dictionary.keys())  # select the letters.
+    key_list = list(dictionary.keys())
     letter_id = 1
     for x in key_list:
-        actual = dictionary[x]  # <- collects the word&def dict for each letter ->
+        actual = dictionary[x]
         cur.execute("INSERT INTO Letters(letter) VALUES(?)", (x,))
-        for key, value in actual.items():  # <- key => word && value => meaning ->
+        for key, value in actual.items():
             cur.execute(
                 """
             INSERT INTO Words(word, meaning, letter_id) VALUES(
@@ -192,16 +157,11 @@ def set_db(dictionary):
 
 def game_on():
     _ = input("!!Start!!Start!!")
-    # letters = pick_letters()
-    # # print(letters)
-    definitions = define(pick_definitions())
-    print(definitions)
-    # types = pick_types()
-    # print(types)
-    # dictionary = make_dictionary(letters, definitions)
-    # # print(dictionary)
-    # set_db(dictionary)
-    # print("Database created")
+    letters = pick_letters()
+    definitions = define(pick_words())
+    dictionary = make_dictionary(letters, definitions)
+    set_db(dictionary)
+    print("Database created")
 
 
 if __name__ == "__main__":

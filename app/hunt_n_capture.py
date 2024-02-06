@@ -42,11 +42,11 @@ def pick_words():
                 "^[A-Z][\w]+, v[.]r[.]",
             ]
         )
-        compiled = re.compile(patterns)
+        pattern = re.compile(patterns)
         words = list()
         for line in f:
             line = line.rstrip()
-            match = re.findall(patterns, line)
+            match = re.findall(pattern, line)
             if match:
                 words.append(match)
             else:
