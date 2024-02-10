@@ -18,11 +18,11 @@ def pick_words():
                 "(^[A-Z][\w]+), v[.]r[.]",
             ]
         )
-        compiled = re.compile(patterns)
+        pattern = re.compile(patterns)
         words = list()
         for line in f:
             line = line.rstrip()
-            match = re.findall(patterns, line)
+            match = re.findall(pattern, line)
             if match:
                 words.append(match)
             else:
@@ -33,42 +33,6 @@ def pick_words():
         ]
 
         return definitions_list
-
-
-def pick_types():
-    """
-    Creates a list of types
-    """
-    with open("t_src/edit.txt", "r") as f:
-        patterns = "|".join(
-            [
-                "^[A-Z][\w]+, (s[.])",
-                "^[A-Z][\w]+, (adj[.] y s[.])",
-                "^[A-Z][\w]+, (s[.] y adj[.])",
-                "^[A-Z][\w]+, (adj[.])",
-                "^[A-Z][\w]+, (adv[.])",
-                "^[A-Z][\w]+, (v[.]t[.])",
-                "^[A-Z][\w]+, (v[.]i[.])",
-                "^[A-Z][\w]+, (v[.]r[.])",
-            ]
-        )
-        print(patterns)
-        compiled = re.compile(patterns)
-        types = list()
-        for line in f:
-            line = line.rstrip()
-            match = re.findall(patterns, line)
-            if match:
-                types.append(match)
-            else:
-                continue
-        print(types)
-
-        type_list = set(
-            [alpha for sublist in types for typ in sublist for alpha in typ if alpha]
-        )
-
-        return type_list
 
 
 def define(picked):
